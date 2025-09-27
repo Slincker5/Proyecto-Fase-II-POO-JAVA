@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import ventanas.VentanaRegistroElectronicos;
+import ventanas.VentanaVerEquipos;
 
 public class Lamina extends JPanel {
     JTextField input;
@@ -61,6 +62,11 @@ public class Lamina extends JPanel {
                 VentanaRegistroElectronicos ventanaRegistroSeleccion = new VentanaRegistroElectronicos();
                 ventanaRegistroSeleccion.setDefaultCloseOperation(3);
                 ventanaRegistroSeleccion.setVisible(true);
+                break;
+            case "2":
+                VentanaVerEquipos vista = new VentanaVerEquipos(); // o VentanaVerEquiposTabla
+                vista.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                vista.setVisible(true);
                 break;
             case "3":
                 System.exit(0);

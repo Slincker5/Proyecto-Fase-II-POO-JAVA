@@ -1,4 +1,5 @@
 package modelos;
+
 public class Desktop extends Equipos {
     private String memoria;
     private String tarjetaGrafica;
@@ -12,5 +13,21 @@ public class Desktop extends Equipos {
         this.tarjetaGrafica = tarjetaGrafica;
         this.tamanoTorre = tamanoTorre;
         this.almacenamiento = almacenamiento;
+    }
+
+    public String getMemoria() {
+        return memoria;
+    }
+
+    public String getTarjetaGrafica() {
+        return tarjetaGrafica;
+    }
+
+    public String getTamanoTorre() {
+        return tamanoTorre;
+    }
+
+    public String getAlmacenamiento() {
+        return almacenamiento;
     }
 }

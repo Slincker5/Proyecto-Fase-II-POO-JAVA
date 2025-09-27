@@ -11,4 +11,8 @@ public class Laptop extends Equipos {
         this.tamanoPantalla = tamanoPantalla;
         this.almacenamiento = almacenamiento;
     }
+
+    public String getMemoria()        { return memoria; }
+    public String getTamanoPantalla() { return tamanoPantalla; }
+    public String getAlmacenamiento() { return almacenamiento; }
 }

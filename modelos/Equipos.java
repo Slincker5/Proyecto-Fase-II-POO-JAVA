@@ -1,4 +1,5 @@
 package modelos;
+
 public class Equipos {
     protected String fabricante;
     protected String modelo;
@@ -11,5 +12,17 @@ public class Equipos {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.procesador = procesador;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getProcesador() {
+        return procesador;
     }
 }
