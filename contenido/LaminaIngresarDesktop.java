@@ -104,7 +104,7 @@ public class LaminaIngresarDesktop extends JPanel {
                     }
                 }
 
-                JOptionPane.showMessageDialog(null, "Desktop registrada:\n" + nuevo);
+                JOptionPane.showMessageDialog(null, "Desktop registrada exitosamente");
             }
         });
     }

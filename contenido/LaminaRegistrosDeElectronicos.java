@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 import ventanas.VentanaIngresarDesktop;
 import ventanas.VentanaIngresarLaptop;
+import ventanas.VentanaIngresarTablet;
 
 public class LaminaRegistrosDeElectronicos extends JPanel {
     JTextField input;
@@ -60,6 +61,10 @@ public class LaminaRegistrosDeElectronicos extends JPanel {
             case "2":
                 VentanaIngresarLaptop ventanaLaptop = new VentanaIngresarLaptop();
                 ventanaLaptop.setVisible(true);
+                break;
+            case "3":
+                VentanaIngresarTablet ventanaTablet = new VentanaIngresarTablet();
+                ventanaTablet.setVisible(true);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Opcion no valida");

@@ -5,68 +5,76 @@ import java.awt.*;
 import java.awt.event.*;
 
 import ventanas.VentanaPrincipal;
-import modelos.Laptop;
+import modelos.Tablet;
 
-public class LaminaIngresarLaptop extends JPanel {
+public class LaminaIngresarTablet extends JPanel {
     JTextField fabricante;
     JTextField modelo;
     JTextField procesador;
-    JTextField memoria;
     JTextField tamanoPantalla;
-    JTextField almacenamiento;
+    JTextField tipoPantalla;
+    JTextField memoriaNAND;
+    JTextField sistemaOperativo;
     JButton boton;
 
-    public LaminaIngresarLaptop() {
+    public LaminaIngresarTablet() {
         setLayout(null);
 
         // Fabricante
         JLabel lblFabricante = editar("Fabricante:");
-        lblFabricante.setBounds(50, 80, 120, 30);
+        lblFabricante.setBounds(50, 80, 150, 30);
         fabricante = new JTextField(15);
-        fabricante.setBounds(180, 80, 200, 30);
+        fabricante.setBounds(200, 80, 200, 30);
         add(lblFabricante);
         add(fabricante);
 
         // Modelo
         JLabel lblModelo = editar("Modelo:");
-        lblModelo.setBounds(50, 120, 120, 30);
+        lblModelo.setBounds(50, 120, 150, 30);
         modelo = new JTextField(15);
-        modelo.setBounds(180, 120, 200, 30);
+        modelo.setBounds(200, 120, 200, 30);
         add(lblModelo);
         add(modelo);
 
         // Procesador
         JLabel lblProcesador = editar("Procesador:");
-        lblProcesador.setBounds(50, 160, 120, 30);
+        lblProcesador.setBounds(50, 160, 150, 30);
         procesador = new JTextField(15);
-        procesador.setBounds(180, 160, 200, 30);
+        procesador.setBounds(200, 160, 200, 30);
         add(lblProcesador);
         add(procesador);
 
-        // Memoria
-        JLabel lblMemoria = editar("Memoria:");
-        lblMemoria.setBounds(50, 200, 120, 30);
-        memoria = new JTextField(15);
-        memoria.setBounds(180, 200, 200, 30);
-        add(lblMemoria);
-        add(memoria);
-
-        // Tarjeta gráfica
-        JLabel lblPantalla = editar("Tamaño de pantalla:");
-        lblPantalla.setBounds(50, 240, 120, 30);
+        // Tamaño de pantalla
+        JLabel lblPantalla = editar("Pantalla (pulgadas):");
+        lblPantalla.setBounds(50, 200, 150, 30);
         tamanoPantalla = new JTextField(15);
-        tamanoPantalla.setBounds(180, 240, 200, 30);
+        tamanoPantalla.setBounds(200, 200, 200, 30);
         add(lblPantalla);
         add(tamanoPantalla);
 
+        // Tipo de pantalla
+        JLabel lblTipoPantalla = editar("Tipo de pantalla:");
+        lblTipoPantalla.setBounds(50, 240, 150, 30);
+        tipoPantalla = new JTextField(15);
+        tipoPantalla.setBounds(200, 240, 200, 30);
+        add(lblTipoPantalla);
+        add(tipoPantalla);
 
-        // Almacenamiento
-        JLabel lblAlmacenamiento = editar("Almacenamiento:");
-        lblAlmacenamiento.setBounds(50, 320, 120, 30);
-        almacenamiento = new JTextField(15);
-        almacenamiento.setBounds(180, 320, 200, 30);
-        add(lblAlmacenamiento);
-        add(almacenamiento);
+        // Memoria NAND
+        JLabel lblMemoria = editar("Memoria NAND:");
+        lblMemoria.setBounds(50, 280, 150, 30);
+        memoriaNAND = new JTextField(15);
+        memoriaNAND.setBounds(200, 280, 200, 30);
+        add(lblMemoria);
+        add(memoriaNAND);
+
+        // Sistema Operativo
+        JLabel lblSO = editar("Sistema Operativo:");
+        lblSO.setBounds(50, 320, 150, 30);
+        sistemaOperativo = new JTextField(15);
+        sistemaOperativo.setBounds(200, 320, 200, 30);
+        add(lblSO);
+        add(sistemaOperativo);
 
         // Botón Guardar
         boton = new JButton("Guardar");
@@ -77,34 +85,36 @@ public class LaminaIngresarLaptop extends JPanel {
 
         boton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Laptop nuevo = new Laptop(
+                Tablet nuevo = new Tablet(
                         fabricante.getText(),
                         modelo.getText(),
                         procesador.getText(),
-                        memoria.getText(),
                         tamanoPantalla.getText(),
-                        almacenamiento.getText()
+                        tipoPantalla.getText(),
+                        memoriaNAND.getText(),
+                        sistemaOperativo.getText()
                 );
 
-                VentanaPrincipal.listaLaptops.add(nuevo);
+                VentanaPrincipal.listaTablets.add(nuevo);
 
-                // cerrar las ventanas secundarias
+                // cerrar ventanas secundarias
                 for (Frame frame : Frame.getFrames()) {
                     if (!(frame instanceof VentanaPrincipal)) {
                         frame.dispose();
                     }
                 }
 
-                JOptionPane.showMessageDialog(null, "Laptop registrada exitosamente");
+                JOptionPane.showMessageDialog(null, "Tablet registrada exitosamente");
             }
         });
     }
 
+    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.BLUE);
         g.setFont(new Font("Cambria", Font.BOLD, 18));
-        g.drawString("Ingresar Laptop", 160, 40);
+        g.drawString("Ingresar Tablet", 160, 40);
     }
 
     protected JLabel editar(String texto) {
